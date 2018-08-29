@@ -14,10 +14,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>Hi, I'm a React App!</p>
-        <Person />
-        <Person />
-        <Person />
+        <Person name="Aby" age="25"/>
+        <Person name="Abe" age="28">
+          My hobbies: playing guitar
+        </Person>
+        <Person name="Yiz" age="26"/>
       </div>
     );
   }
