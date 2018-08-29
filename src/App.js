@@ -4,6 +4,15 @@ import './App.css';
 import Person from './Person/Person'
 
 class App extends Component {
+
+  state = {
+    persons: [
+      { name: "Aby", age: 25 },
+      { name: "Abe", age: 28 },
+      { name: "Yiz", age: 24 }
+    ]
+  }
+
   render() {
     return (
       <div className="App">
@@ -14,11 +23,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Person name="Aby" age="25"/>
-        <Person name="Abe" age="28">
+        <Person name={ this.state.persons[0].name } age={ this.state.persons[0].age }/>
+        <Person name={ this.state.persons[1].name } age={ this.state.persons[1].age }>
           My hobbies: playing guitar
         </Person>
-        <Person name="Yiz" age="26"/>
+        <Person name={ this.state.persons[2].name } age={ this.state.persons[2].age }/>
       </div>
     );
   }
