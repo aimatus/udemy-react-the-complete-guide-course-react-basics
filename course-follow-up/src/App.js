@@ -1,27 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import Person from './Person/Person'
+import './App.css';
 
 class App extends Component {
 
   state = {
     persons: [
-      { name: 'Aby', age: 25 },
-      { name: 'Abe', age: 28 },
-      { name: 'Yiz', age: 24 }
+      { id: 'sdfsdf', name: 'Aby', age: 25 },
+      { id: 'fghfgh', name: 'Abe', age: 28 },
+      { id: '23dasd', name: 'Yiz', age: 24 }
     ],
     showPersons: false
-  }
-
-  switchNameHandler = (newName) => {
-    this.setState({
-      persons: [
-        { name: 'Abigail', age: 25 },
-        { name: newName, age: 28 },
-        { name: 'Yiz', age: 24 }
-      ]
-    });
   }
 
   nameChangeHandler = (event) => {
@@ -32,6 +22,12 @@ class App extends Component {
         { name: 'Yiz', age: 24 }
       ]
     });
+  }
+
+  deletePersonHandler = (personIndex) => {
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({ persons: persons });
   }
 
   togglePersonsHalder = () => {
@@ -55,8 +51,10 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map(person => {
+          {this.state.persons.map((person, index) => {
             return <Person
+              key={person.id}
+              click={() => this.deletePersonHandler(index)}
               name={person.name}
               age={person.age} />
           })}
