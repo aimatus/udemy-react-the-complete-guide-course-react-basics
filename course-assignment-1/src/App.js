@@ -25,7 +25,9 @@ class App extends Component {
           <h1 className="App-title">github.com/aimatus</h1>
         </header>
         <div className="Assignment">
-          <UserInput changed={this.usernameChangeHandler.bind(this)}/>
+          <UserInput
+            changed={this.usernameChangeHandler}
+            username={this.state.username} />
           <UserOutput username={this.state.username}/>
           <UserOutput />
           <UserOutput />

@@ -11,7 +11,7 @@ const userOutput = (props) => {
     return (
         <div className="UserOutputParagraph">
             <p>
-                {props.username ? props.username : paragrahps[0]}
+                {props.username ? 'Username: ' + props.username : paragrahps[0]}
             </p>
             <p>
                 {paragrahps[1]}
