@@ -4,6 +4,11 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    username: '@aimatus'
+  }
+
   render() {
     return (
       <div className="App">
@@ -15,7 +20,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <div className="Assignment">
-          <UserOutput username="@aimatus"/>
+          <UserOutput username={this.state.username}/>
           <UserOutput />
           <UserOutput />
         </div>
