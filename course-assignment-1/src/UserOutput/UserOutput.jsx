@@ -10,7 +10,7 @@ const userOutput = (props) => {
     return (
         <div>
             <p>
-                {paragrahps[0]}
+                {props.username ? props.username : paragrahps[0]}
             </p>
             <p>
                 {paragrahps[1]}
