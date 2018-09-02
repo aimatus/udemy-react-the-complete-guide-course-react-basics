@@ -1,4 +1,5 @@
 import React from 'react'
+import './UserOutput.css'
 
 const userOutput = (props) => {
 
@@ -8,7 +9,7 @@ const userOutput = (props) => {
     ]
 
     return (
-        <div>
+        <div className="UserOutputParagraph">
             <p>
                 {props.username ? props.username : paragrahps[0]}
             </p>
