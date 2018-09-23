@@ -40,7 +40,8 @@ class App extends Component {
   render() {
 
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -62,6 +63,18 @@ class App extends Component {
           })}
         </div>
       )
+      style.backgroundColor = 'red';
+    }
+
+    const classes = [];
+
+    if (this.state.persons.length < 3) {
+      classes.push('red');
+    }
+    if (this.state.persons.length < 2) {
+      classes.push('bold');
+      console.log('test');
+      console.log(classes);
     }
 
     return (
@@ -70,6 +83,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">React, the Complete Guide</h1>
         </header>
+        <p className={classes.join(' ')}>This is really working!</p>
         <button
           style={style}
           onClick={this.togglePersonsHalder}>Toggle Persons</button>
