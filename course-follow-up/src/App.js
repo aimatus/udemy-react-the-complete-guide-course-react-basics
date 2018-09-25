@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import Person from './Person/Person'
-import './App.css';
+import cssClasses from './App.css';
 
 class App extends Component {
 
@@ -69,19 +69,17 @@ class App extends Component {
     const classes = [];
 
     if (this.state.persons.length < 3) {
-      classes.push('red');
+      classes.push(cssClasses.red);
     }
     if (this.state.persons.length < 2) {
-      classes.push('bold');
-      console.log('test');
-      console.log(classes);
+      classes.push(cssClasses.bold);
     }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">React, the Complete Guide</h1>
+      <div className={cssClasses.App}>
+        <header className={cssClasses['App-header']}>
+          <img src={logo} className={cssClasses['App-logo']} alt="logo" />
+          <h1 className={cssClasses['App-title']}>React, the Complete Guide</h1>
         </header>
         <p className={classes.join(' ')}>This is really working!</p>
         <button
