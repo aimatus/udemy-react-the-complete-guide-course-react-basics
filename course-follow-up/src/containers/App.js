@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
-import Person from '../components/Persons/Person/Person'
+import Persons from '../components/Persons/Persons'
 import cssClasses from './App.css';
 
 class App extends Component {
@@ -44,14 +44,10 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map((person, index) => {
-            return <Person
-              key={person.id}
-              click={() => this.deletePersonHandler(index)}
-              name={person.name}
-              age={person.age}
-              changed={(event) => this.nameChangeHandler(event, person.id)} />
-          })}
+          <Persons
+            persons={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.nameChangeHandler} />
         </div>
       )
       buttonClass = cssClasses.Red;
