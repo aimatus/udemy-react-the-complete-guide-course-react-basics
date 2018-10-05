@@ -22,7 +22,7 @@ const cockpit = (props) => {
         <div className={cockpitClasses.Cockpit}>
             <header className={cssClasses['App-header']}>
                 <img src={logo} className={cssClasses['App-logo']} alt="logo" />
-                <h1 className={cssClasses['App-title']}>React, the Complete Guide</h1>
+                <h1 className={cssClasses['App-title']}>{props.appTitle}</h1>
             </header>
             <p className={classes.join(' ')}>This is really working!</p>
             <button
