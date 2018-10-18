@@ -4,6 +4,15 @@ import classes from './BurgerIngredient.module.css'
 
 class BurgerIngredient extends React.Component {
 
+    getBreadTopIngredient = () => {
+        return (
+            <div className={classes.BreadTop}>
+                <div className={classes.Seeds1}></div>
+                <div className={classes.Seeds2}></div>
+            </div>
+        )
+    }
+
     render() {
         let ingredient = null;
         switch (this.props.type) {
@@ -11,12 +20,7 @@ class BurgerIngredient extends React.Component {
                 ingredient = <div className={classes.BreadBottom}></div>;
                 break;
             case ('bread-top'):
-                ingredient = (
-                    <div className={classes.BreadTop}>
-                        <div className={classes.Seeds1}></div>
-                        <div className={classes.Seeds2}></div>
-                    </div>
-                );
+                ingredient = this.getBreadTopIngredient();
                 break;
             case ('meat'):
                 ingredient = <div className={classes.Meat}></div>;
