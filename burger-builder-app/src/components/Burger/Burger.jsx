@@ -6,7 +6,8 @@ const burger = (props) => {
 
     let ingredientsList = Object.keys(props.ingredients)
         .map(ingredientKey => {
-            return [...Array(props.ingredients[ingredientKey])]
+            const ingredientAmount = props.ingredients[ingredientKey];
+            return [...Array(ingredientAmount)]
                 .map((_, index) => {
                     return <BurgerIngredient
                         key={ingredientKey + index}
@@ -18,7 +19,7 @@ const burger = (props) => {
         }, []);
 
     if (ingredientsList.length === 0) {
-        ingredientsList = <p>Please start adding ingredients</p>
+        return <p>Please start adding ingredients</p>
     }
 
     return (
