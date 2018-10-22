@@ -75,6 +75,10 @@ class BurgerBuilder extends React.Component {
         this.setState({ orderSummaryModalIsVisible: true });
     }
 
+    orderSummaryCancelHandler = () => {
+        this.setState({ orderSummaryModalIsVisible: false });
+    }
+
     render() {
         const disabledInfo = {
             ...this.state.ingredients
@@ -84,7 +88,9 @@ class BurgerBuilder extends React.Component {
         }
         return (
             <>
-                <Modal show={this.state.orderSummaryModalIsVisible}>
+                <Modal
+                    show={this.state.orderSummaryModalIsVisible}
+                    modalClosed={this.orderSummaryCancelHandler}>
                     <OrderSumary ingredients={this.state.ingredients} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
