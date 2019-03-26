@@ -9,7 +9,8 @@ class Blog extends Component {
 
     state = {
         posts: [],
-        selectedPostId: null
+        selectedPostId: null,
+        error: null
     }
 
     componentDidMount() {
@@ -23,6 +24,9 @@ class Blog extends Component {
                     }
                 });
                 this.setState({ posts: updatedPosts });
+            })
+            .catch(error => {
+                this.setState({ error: true });
             });
     }
 
@@ -31,6 +35,8 @@ class Blog extends Component {
     }
 
     render () {
+        let error = <p style={{textAlign: "center"}}>Something went wrong</p>
+
         const posts = this.state.posts.map(post =>
             <Post key={post.id}
             title={post.title}
@@ -41,7 +47,7 @@ class Blog extends Component {
         return (
             <div>
                 <section className="Posts">
-                    {posts}
+                    {this.state.error ? error : posts}
                 </section>
                 <section>
                     <FullPost id={this.state.selectedPostId}/>
